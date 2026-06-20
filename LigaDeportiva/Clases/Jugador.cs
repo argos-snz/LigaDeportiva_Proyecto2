@@ -17,8 +17,18 @@ namespace LigaDeportiva.Clases
 
 
         /// <summary>
-        /// Constructor de Jugador. 
+        /// Constructor de Jugador. Crea un nuevo jugador.
+        /// Si algún dato ingresado no cumple las validaciones (del Dni, Edad, etc), 
+        /// queda en 0.
+        /// Para avisarle al usuario cuando salte un error por el control de
+        /// errores se puede hacer después desde el formulario antes de llamar a este constructor.
         /// </summary>
+        /// <param name="dni">      DNI del jugador (debe tener 8 dígitos)</param>
+        /// <param name="nombre">   Nombre del jugador (no puede estar vacío)</param>
+        /// <param name="apellido"> Apellido del jugador (no puede estar vacío)</param>
+        /// <param name="edad">     Edad del jugador (debe estar entre 3 y 85 años)</param>
+        /// <param name="seguro">   Indica si el jugador tiene seguro</param>
+        /// <param name="afiliado"> Indica si el jugador está afiliado</param>
         public Jugador(int dni, string nombre, string apellido, int edad, bool seguro, bool afiliado)
         {
             Dni = dni;
@@ -43,7 +53,7 @@ namespace LigaDeportiva.Clases
                 {
                     dni = value;
                 }
-                
+
             }
         }
 
