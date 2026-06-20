@@ -1,0 +1,20 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Carpetas de compilación
+[Bb]in/
+[Oo]bj/
+
+# Archivos de NuGet
+*.nupkg
+packages/
+
+# Archivos de base de datos locales
+*.mdf
+*.ldf
+
+# ReSharper / otros
+_ReSharper*/
+*.DotSettings.user
