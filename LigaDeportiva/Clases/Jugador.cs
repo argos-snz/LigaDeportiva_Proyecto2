@@ -16,17 +16,44 @@ namespace LigaDeportiva.Clases
         private bool afiliado;
 
 
+        /// <summary>
+        /// Constructor de Jugador. 
+        /// </summary>
+        public Jugador(int dni, string nombre, string apellido, int edad, bool seguro, bool afiliado)
+        {
+            Dni = dni;
+            Nombre = nombre;
+            Apellido = apellido;
+            Edad = edad;
+            Seguro = seguro;
+            Afiliado = afiliado;
+        }
+
 
         /// <summary>
-        /// NOMBRE DEL JUGADOPR. No permite espacios en blanco.
+        /// Nombre del jugador. No permite espacios en blanco.
         /// </summary>
         public string Nombre
         {
             get { return nombre; }
             set
             {
-                if (value.Trim() != "")  // el .Trim() saca los espacios en blanco al principio y al final del texto.
+                if (value.Trim() != "")  // el .Trim() saca los espacios en blanco al principio y al final del texto
                     nombre = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Apellido del jugador. No permite espacios en blanco.
+        /// </summary>
+        public string Apellido
+        {
+            get { return apellido; }
+            set
+            {
+                if (value.Trim() != "")  // el .Trim() saca los espacios en blanco al principio y al final del texto
+                    apellido = value;
             }
         }
     }
