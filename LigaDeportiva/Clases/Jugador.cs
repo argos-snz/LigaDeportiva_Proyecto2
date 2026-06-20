@@ -30,6 +30,25 @@ namespace LigaDeportiva.Clases
         }
 
 
+
+        /// <summary>
+        /// Dni del jugador. Validación para el DNI.
+        /// </summary>
+        public int Dni
+        {
+            get { return dni; }
+            set
+            {
+                if (value >= 10000000 && value <= 99999999)
+                {
+                    dni = value;
+                }
+                
+            }
+        }
+
+
+
         /// <summary>
         /// Nombre del jugador. No permite espacios en blanco.
         /// </summary>
@@ -55,6 +74,41 @@ namespace LigaDeportiva.Clases
                 if (value.Trim() != "")  // el .Trim() saca los espacios en blanco al principio y al final del texto
                     apellido = value;
             }
+        }
+
+
+
+        /// <summary>
+        /// Edad del jugador. Debe estar entre 3 y 85 años.
+        /// </summary>
+        public int Edad
+        {
+            get { return edad; }
+            set
+            {
+                if (value >= 3 && value <= 85)
+                    edad = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Indica si el jugador tiene seguro activo.
+        /// </summary>
+        public bool Seguro
+        {
+            get { return seguro; }
+            set { seguro = value; }
+        }
+
+
+        /// <summary>
+        /// Indica si el jugador está afiliado.
+        /// </summary>
+        public bool Afiliado
+        {
+            get { return afiliado; }
+            set { afiliado = value; }
         }
     }
 }
