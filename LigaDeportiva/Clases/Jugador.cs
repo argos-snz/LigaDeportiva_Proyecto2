@@ -14,6 +14,7 @@ namespace LigaDeportiva.Clases
         private int edad;
         private bool seguro;
         private bool afiliado;
+        private List<Equipo> equipos;
 
 
         /// <summary>
@@ -37,6 +38,7 @@ namespace LigaDeportiva.Clases
             Edad = edad;
             Seguro = seguro;
             Afiliado = afiliado;
+            equipos = new List<Equipo>();
         }
 
 
@@ -119,6 +121,15 @@ namespace LigaDeportiva.Clases
         {
             get { return afiliado; }
             set { afiliado = value; }
+        }
+
+
+        /// <summary>
+        /// Lista de equipos a los que pertenece este jugador.
+        /// </summary>
+        public List<Equipo> Equipos
+        {
+            get { return equipos; }
         }
     }
 }
