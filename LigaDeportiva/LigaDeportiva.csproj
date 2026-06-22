@@ -48,7 +48,9 @@
   <ItemGroup>
     <Compile Include="Clases\Club.cs" />
     <Compile Include="Clases\Equipo.cs" />
+    <Compile Include="Clases\GestorEquipos.cs" />
     <Compile Include="Clases\Jugador.cs" />
+    <Compile Include="Clases\GestorJugadores.cs" />
     <Compile Include="Enums\Categoria.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
