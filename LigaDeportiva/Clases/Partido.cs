@@ -37,16 +37,25 @@ namespace LigaDeportiva.Clases
             this.equipoLocal = equipoLocal;
             this.equipoVisitante = equipoVisitante;
             this.titularesLocal = titularesLocal;
-            this.suplentesLocal = suplentesLocal;
             this.titularesVisitante = titularesVisitante;
-            this.suplentesVisitante = suplentesVisitante;
             this.fechaHorario = fechaHorario;
             this.lugar = lugar;
             this.golesLocal = golesLocal;
             this.golesVisitante = golesVisitante;
+
+            // si me pasaron una lista de suplentes, la uso y, si me pasaron null sin suplentes, creo una lista vacía.
+            if (suplentesLocal != null)
+                this.suplentesLocal = suplentesLocal;
+            else
+                this.suplentesLocal = new List<Jugador>();
+
+            if (suplentesVisitante != null)
+                this.suplentesVisitante = suplentesVisitante;
+            else
+                this.suplentesVisitante = new List<Jugador>();
         }
 
-        // <summary>
+        /// <summary>
         /// Categoría del encuentro.
         /// </summary>
         public Categoria Categoria
@@ -124,6 +133,13 @@ namespace LigaDeportiva.Clases
         public int GolesLocal
         {
             get { return golesLocal; }
+            set
+            {
+                if (value >= 0)
+                {
+                    golesLocal = value;
+                }
+            }
         }
 
         /// <summary>
@@ -132,6 +148,13 @@ namespace LigaDeportiva.Clases
         public int GolesVisitante
         {
             get { return golesVisitante; }
+            set
+            {
+                if (value >= 0)
+                {
+                    golesVisitante = value;
+                }
+            }
         }
 
     }

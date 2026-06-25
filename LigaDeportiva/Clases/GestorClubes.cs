@@ -20,13 +20,31 @@ namespace LigaDeportiva.Clases
 
 
         /// <summary>
-        /// Agrega un nuevo club al sistema validando que el nombre no esté repetido.
+        /// Busca un club por su nombre.
+        /// </summary>
+        /// <param name="nombre">Nombre del club a buscar</param>
+        /// <returns>El club encontrado, o null si no existe</returns>
+        public Club BuscarClub(string nombre)
+        {
+            foreach (Club c in clubes)
+            {
+                if (c.Nombre == nombre )
+                {
+                    return c;
+                }
+            }
+            return null;
+        }
+
+
+        /// <summary>
+        /// Agrega un nuevo club validando que el nombre no esté vacío ni repetido.
         /// </summary>
         /// <param name="nombre">Nombre del club a registrar</param>
-        /// <returns>true si se agregó correctamente, false si el club ya existía o el nombre es inválido</returns>
+        /// <returns>true si se agregó correctamente, false si el nombre está vacío o ya existe</returns>
         public bool AgregarClub(string nombre)
         {
-            if (string.IsNullOrWhiteSpace(nombre) || BuscarClub(nombre) != null)
+            if (nombre.Trim() == "" || BuscarClub(nombre) != null)
             {
                 return false;
             }
@@ -37,29 +55,35 @@ namespace LigaDeportiva.Clases
         }
 
         /// <summary>
-        /// Busca un club registrado a partir de su nombre, ignorando mayúsculas y minúsculas.
-        /// </summary>
-        /// <param name="nombre">Nombre del club a buscar.</param>
-        /// <returns>El objeto Club encontrado, o null si no existe ningún club con ese nombre.</returns>
-        public Club BuscarClub(string nombre)
-        {
-            foreach (Club c in clubes)
-            {
-                if (c.Nombre.Equals(nombre.Trim(), StringComparison.OrdinalIgnoreCase))
-                {
-                    return c;
-                }
-            }
-            return null;
-        }
-
-        /// <summary>
         /// Devuelve la lista completa de los clubes registrados.
         /// </summary>
-        /// <returns>Lista de objetos de tipo Club.</returns>
+        /// <returns>Lista de todos los clubes</returns>
         public List<Club> MostrarClubes()
         {
             return clubes;
+        }
+
+
+        /// <summary>
+        /// Busca un club por su nombre y lo elimina, siempre que no tenga equiposs registrados.
+        /// </summary>
+        /// <param name="nombre">Nombre del club a eliminar</param>
+        /// <returns>true si se eliminó correctamente, false si no se encontró o si tiene equipos</returns>
+        public bool EliminarClub(string nombre)
+        {
+            Club c = BuscarClub(nombre);
+
+            if (c == null)
+            {
+                return false;
+            }
+            if (c.Equipos.Count > 0)
+            {
+                return false;
+            }
+
+            clubes.Remove(c);
+            return true;
         }
     }
 }
