@@ -123,7 +123,7 @@ namespace LigaDeportiva.Clases
         {
             try
             {
-                // 1. Llamamos al método que hace los cálculos
+                // Llamamos al método que hace los cálculos
                 List<EstadisticasEquipo> stats = CalcularEstadisticas(equipos);
 
                 string contenido = "=== TABLA DE POSICIONES Y ESTADÍSTICAS ===\n\n";
@@ -133,7 +133,7 @@ namespace LigaDeportiva.Clases
                 Equipo equipoMasVictorias = null;
                 Equipo equipoMasDerrotas = null;
 
-                // 2. Armamos el texto del reporte recorriendo la lista calculada
+                // texto del reporte recorriendo la lista calculada
                 foreach (EstadisticasEquipo s in stats)
                 {
                     // encontrar al de más victorias y derrotas
