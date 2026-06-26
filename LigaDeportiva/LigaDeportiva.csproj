@@ -55,6 +55,8 @@
     <Compile Include="Clases\Jugador.cs" />
     <Compile Include="Clases\GestorJugadores.cs" />
     <Compile Include="Clases\Partido.cs" />
+    <Compile Include="Clases\Persona.cs" />
+    <Compile Include="Clases\PrecargaDatos.cs" />
     <Compile Include="Enums\Categoria.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
