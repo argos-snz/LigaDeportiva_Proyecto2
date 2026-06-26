@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LigaDeportiva.Interfaces;
+using System.IO;
 
 namespace LigaDeportiva.Clases
 {
-    internal class GestorJugadores
+    internal class GestorJugadores : IExportable
     {
         private List<Jugador> jugadores;
 
@@ -209,6 +211,32 @@ namespace LigaDeportiva.Clases
             j.Afiliado = nuevoAfiliado;
 
             return true;
+        }
+
+
+        public bool ExportarDatosTxt(string rutaArchivo)
+        {
+            try
+            {
+                string contenido = "=== LISTADO DE JUGADORES ===" + "\n";
+
+                foreach (Jugador j in jugadores)
+                {
+                    contenido += "DNI: " + j.Dni + "\n";
+                    contenido += "Nombre: " + j.Nombre + " " + j.Apellido + "\n";
+                    contenido += "Edad: " + j.Edad + "\n";
+                    contenido += "Seguro: " + (j.Seguro ? "Si" : "No") + "\n";
+                    contenido += "Afiliado: " + (j.Afiliado ? "Si" : "No") + "\n";
+                    contenido += "----------------------------" + "\n";
+                }
+
+                File.WriteAllText(rutaArchivo, contenido);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

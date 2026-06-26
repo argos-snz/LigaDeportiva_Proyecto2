@@ -133,13 +133,6 @@ namespace LigaDeportiva.Clases
         public int GolesLocal
         {
             get { return golesLocal; }
-            set
-            {
-                if (value >= 0)
-                {
-                    golesLocal = value;
-                }
-            }
         }
 
         /// <summary>
@@ -148,14 +141,6 @@ namespace LigaDeportiva.Clases
         public int GolesVisitante
         {
             get { return golesVisitante; }
-            set
-            {
-                if (value >= 0)
-                {
-                    golesVisitante = value;
-                }
-            }
         }
-
     }
 }

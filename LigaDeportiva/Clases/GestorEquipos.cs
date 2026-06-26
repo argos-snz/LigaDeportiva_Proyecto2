@@ -5,10 +5,12 @@ using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using LigaDeportiva.Interfaces;
 
 namespace LigaDeportiva.Clases
 {
-    internal class GestorEquipos
+    internal class GestorEquipos : IExportable
     {
         private List<Equipo> equipos;
 
@@ -90,6 +92,35 @@ namespace LigaDeportiva.Clases
                 }
             }
             return resultado;
+        }
+
+        /// <summary>
+        /// Exporta la lista completa de equipos registrados y sus datos principales a un archivo de texto.
+        /// </summary>
+        /// <param name="rutaArchivo">Ruta donde se creará o sobrescribirá el archivo .txt</param>
+        /// <returns>true si la exportación fue exitosa, false si ocurrió un error</returns>
+        public bool ExportarDatosTxt(string rutaArchivo)
+        {
+            try
+            {
+                string contenido = "=== LISTADO DE EQUIPOS ===" + "\n";
+
+                foreach (Equipo e in equipos)
+                {
+                    contenido += "Equipo: " + e.Nombre + "\n";
+                    contenido += "Club: " + e.Club.Nombre + "\n";
+                    contenido += "Categoría: " + e.Categoria + "\n";
+                    contenido += "Cantidad de jugadores asignados: " + e.Jugadores.Count + "\n";
+                    contenido += "----------------------------" + "\n";
+                }
+
+                File.WriteAllText(rutaArchivo, contenido);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

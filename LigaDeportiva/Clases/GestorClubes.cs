@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LigaDeportiva.Interfaces;
+using System.IO;
 
 namespace LigaDeportiva.Clases
 {
@@ -84,6 +86,33 @@ namespace LigaDeportiva.Clases
 
             clubes.Remove(c);
             return true;
+        }
+
+        /// <summary>
+        /// Exporta la lista completa de clubes y la cantidad de equipos de cada uno a un archivo de texto.
+        /// </summary>
+        /// <param name="rutaArchivo">Ruta completa donde se creará o sobrescribirá el archivo .txt</param>
+        /// <returns>true si la exportación fue exitosa, false si ocurrió un error</returns>
+        public bool ExportarDatosTxt(string rutaArchivo)
+        {
+            try
+            {
+                string contenido = "=== LISTADO DE CLUBES ===" + "\n";
+
+                foreach (Club c in clubes)
+                {
+                    contenido += "Nombre del Club: " + c.Nombre + "\n";
+                    contenido += "Equipos registrados en este club: " + c.Equipos.Count + "\n";
+                    contenido += "----------------------------" + "\n";
+                }
+
+                File.WriteAllText(rutaArchivo, contenido);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

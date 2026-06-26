@@ -48,8 +48,10 @@
   <ItemGroup>
     <Compile Include="Clases\Club.cs" />
     <Compile Include="Clases\Equipo.cs" />
+    <Compile Include="Clases\EstadisticasEquipo.cs" />
     <Compile Include="Clases\GestorClubes.cs" />
     <Compile Include="Clases\GestorEquipos.cs" />
+    <Compile Include="Clases\GestorPartidos.cs" />
     <Compile Include="Clases\Jugador.cs" />
     <Compile Include="Clases\GestorJugadores.cs" />
     <Compile Include="Clases\Partido.cs" />
