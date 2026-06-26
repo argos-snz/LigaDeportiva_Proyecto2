@@ -10,12 +10,12 @@ namespace LigaDeportiva.Clases
     /// <summary>
     /// Clase ESTÁTICA que nos provee datos iniciales de prueba para el sistema.
     /// </summary>
-    internal static class PrecargaDatos
+    public static class PrecargaDatos
     {
         /// <summary>
         /// Carga equipos, jugadores y un partido de prueba 
         /// </summary>
-        public static void Cargar(GestorPartidos gestorPartidos)
+        public static void Cargar(GestorPartidos gestorPartidos, GestorJugadores gestorJugadores)
         {
             // Creamos los clubes
             Club clubA = new Club("River");
@@ -38,6 +38,18 @@ namespace LigaDeportiva.Clases
             Jugador jB3 = new Jugador(88888888, "Matias", "Diaz", 27, true, true);
             Jugador jB4 = new Jugador(99999999, "Lucas", "Sosa", 21, true, true);
             Jugador jB5 = new Jugador(12345678, "Tomas", "Ruiz", 23, true, true);
+
+            // Agregamos los jugadores al gestor de jugadores
+            gestorJugadores.AgregarJugador(11111111, "Roberto", "Ruso", 25, true, true);
+            gestorJugadores.AgregarJugador(22222222, "Carlos", "Gomez", 28, true, true);
+            gestorJugadores.AgregarJugador(33333333, "Luis", "Fuego", 22, true, true);
+            gestorJugadores.AgregarJugador(44444444, "Martin", "Perez", 30, true, true);
+            gestorJugadores.AgregarJugador(55555555, "Diego", "Lopez", 26, true, true);
+            gestorJugadores.AgregarJugador(66666666, "Juan", "Gordo", 29, true, true);
+            gestorJugadores.AgregarJugador(77777777, "Pedro", "Gorda", 24, true, true);
+            gestorJugadores.AgregarJugador(88888888, "Matias", "Diaz", 27, true, true);
+            gestorJugadores.AgregarJugador(99999999, "Lucas", "Sosa", 21, true, true);
+            gestorJugadores.AgregarJugador(12345678, "Tomas", "Ruiz", 23, true, true);
 
             //Listas de jugadores
             List<Jugador> titularesA = new List<Jugador>();

@@ -9,7 +9,7 @@ namespace LigaDeportiva.Clases
     /// <summary>
     /// Representa a un jugador inscripto en la liga, heredando los datos básicos dedsde Persona.
     /// </summary>
-    internal class Jugador : Persona
+    public class Jugador : Persona
     {
         private bool seguro;
         private bool afiliado;

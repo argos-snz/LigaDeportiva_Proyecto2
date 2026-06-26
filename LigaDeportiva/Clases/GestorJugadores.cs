@@ -9,7 +9,7 @@ using System.IO;
 
 namespace LigaDeportiva.Clases
 {
-    internal class GestorJugadores : IExportable
+    public class GestorJugadores : IExportable
     {
         private List<Jugador> jugadores;
 

@@ -7,7 +7,7 @@ using LigaDeportiva.Enums;
 
 namespace LigaDeportiva.Clases
 {
-    internal class Equipo
+    public class Equipo
     {
         private string nombre;       // se arma automático: Club + Categoría + Letra
         private Categoria categoria;

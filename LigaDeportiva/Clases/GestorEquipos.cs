@@ -10,7 +10,7 @@ using LigaDeportiva.Interfaces;
 
 namespace LigaDeportiva.Clases
 {
-    internal class GestorEquipos : IExportable
+    public class GestorEquipos : IExportable
     {
         private List<Equipo> equipos;
 

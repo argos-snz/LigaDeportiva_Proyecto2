@@ -10,7 +10,7 @@ namespace LigaDeportiva.Clases
     /// <summary>
     /// Representa un partido entre dos equipos de la misma categoría.
     /// </summary>
-    internal class Partido
+    public class Partido
     {
         private Categoria categoria;
         private Equipo equipoLocal;

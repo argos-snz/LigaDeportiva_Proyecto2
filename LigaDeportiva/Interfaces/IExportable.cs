@@ -9,7 +9,7 @@ namespace LigaDeportiva.Interfaces
     /// <summary>
     /// Define el contrato para las clases que tienen la capacidad de exportar sus datos a un archivo externo.
     /// </summary>
-    internal interface IExportable
+    public interface IExportable
     {
         /// <summary>
         /// Exporta la información de la clase a un archivo de texto en la ruta especificada.

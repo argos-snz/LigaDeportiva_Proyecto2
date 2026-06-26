@@ -28,13 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnJugadores = new System.Windows.Forms.Button();
+            this.btnEquipos = new System.Windows.Forms.Button();
+            this.btnClubes = new System.Windows.Forms.Button();
+            this.btnPartidos = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnJugadores
+            // 
+            this.btnJugadores.Location = new System.Drawing.Point(51, 38);
+            this.btnJugadores.Name = "btnJugadores";
+            this.btnJugadores.Size = new System.Drawing.Size(126, 51);
+            this.btnJugadores.TabIndex = 0;
+            this.btnJugadores.Text = "Gestionar Jugadores";
+            this.btnJugadores.UseVisualStyleBackColor = true;
+            this.btnJugadores.Click += new System.EventHandler(this.btnJugadores_Click);
+            // 
+            // btnEquipos
+            // 
+            this.btnEquipos.Location = new System.Drawing.Point(51, 116);
+            this.btnEquipos.Name = "btnEquipos";
+            this.btnEquipos.Size = new System.Drawing.Size(126, 51);
+            this.btnEquipos.TabIndex = 1;
+            this.btnEquipos.Text = "Gestionar Equipos";
+            this.btnEquipos.UseVisualStyleBackColor = true;
+            // 
+            // btnClubes
+            // 
+            this.btnClubes.Location = new System.Drawing.Point(51, 188);
+            this.btnClubes.Name = "btnClubes";
+            this.btnClubes.Size = new System.Drawing.Size(126, 51);
+            this.btnClubes.TabIndex = 2;
+            this.btnClubes.Text = "Gestionar Clubes";
+            this.btnClubes.UseVisualStyleBackColor = true;
+            // 
+            // btnPartidos
+            // 
+            this.btnPartidos.Location = new System.Drawing.Point(51, 263);
+            this.btnPartidos.Name = "btnPartidos";
+            this.btnPartidos.Size = new System.Drawing.Size(126, 51);
+            this.btnPartidos.TabIndex = 3;
+            this.btnPartidos.Text = "Registrar Partido";
+            this.btnPartidos.UseVisualStyleBackColor = true;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Location = new System.Drawing.Point(51, 343);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Size = new System.Drawing.Size(126, 51);
+            this.btnReportes.TabIndex = 4;
+            this.btnReportes.Text = "Generar Reportes";
+            this.btnReportes.UseVisualStyleBackColor = true;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(657, 450);
+            this.Controls.Add(this.btnReportes);
+            this.Controls.Add(this.btnPartidos);
+            this.Controls.Add(this.btnClubes);
+            this.Controls.Add(this.btnEquipos);
+            this.Controls.Add(this.btnJugadores);
+            this.Name = "Form1";
+            this.Text = "Liga Deportiva - Menú Principal";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnJugadores;
+        private System.Windows.Forms.Button btnEquipos;
+        private System.Windows.Forms.Button btnClubes;
+        private System.Windows.Forms.Button btnPartidos;
+        private System.Windows.Forms.Button btnReportes;
     }
 }
 

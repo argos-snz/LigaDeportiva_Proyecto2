@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LigaDeportiva.Clases
 {
-    internal class Club
+    public class Club
     {
         private string nombre;
         private List<Equipo> equipos;

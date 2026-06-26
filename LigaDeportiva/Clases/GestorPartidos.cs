@@ -9,7 +9,7 @@ using System.IO;
 
 namespace LigaDeportiva.Clases
 {
-    internal class GestorPartidos : IExportable
+    public class GestorPartidos : IExportable
     {
         private List<Partido> partidos;
 

@@ -8,7 +8,7 @@ using System.IO;
 
 namespace LigaDeportiva.Clases
 {
-    internal class GestorClubes : IExportable
+    public class GestorClubes : IExportable
     {
         private List<Club> clubes;
 

@@ -9,7 +9,7 @@ namespace LigaDeportiva.Clases
     /// <summary>
     /// Guarda y calcula las estadísticas de un equipo en base a su historial de partidos.
     /// </summary>
-    internal class EstadisticasEquipo
+    public class EstadisticasEquipo
     {
         private Equipo equipoAsociado;
         private int partidosJugados;

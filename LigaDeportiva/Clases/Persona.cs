@@ -11,7 +11,7 @@ namespace LigaDeportiva.Clases
     /// En un futuro, se podrían crear mas clases derivadas además de Jugador, 
     /// como Entrenador, Arbitro, etc., que hereden de Persona.
     /// </summary>
-    internal abstract class Persona
+    public abstract class Persona
     {
         private int dni; 
         private string nombre;
