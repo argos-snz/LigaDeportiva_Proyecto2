@@ -23,6 +23,13 @@ namespace LigaDeportiva.Clases
         }
 
 
+        // NOTA DEL DISEÑO: La modificación de equipos no está implementada
+        // porque el nombre del equipo se genera automáticamente a partir del
+        // club y la categoría y estos datos no pueden cambiar una vez creado
+        // el equipo. Para "modificar" un equipo, se debe eliminar y crear uno nuevo.
+        //----------------------------------------------------------------------------------
+
+
         /// <summary>
         /// Agrega un nuevo equipo a la lista.
         /// </summary>
@@ -139,5 +146,7 @@ namespace LigaDeportiva.Clases
             }
             return resultado;
         }
+
+
     }
 }

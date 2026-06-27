@@ -70,6 +70,12 @@
     <Compile Include="FormClubes.Designer.cs">
       <DependentUpon>FormClubes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormConsultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultas.Designer.cs">
+      <DependentUpon>FormConsultas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormEquipos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,12 @@
     <Compile Include="FormPartido.Designer.cs">
       <DependentUpon>FormPartido.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportes.Designer.cs">
+      <DependentUpon>FormReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IExportable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,6 +109,9 @@
     <EmbeddedResource Include="FormClubes.resx">
       <DependentUpon>FormClubes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultas.resx">
+      <DependentUpon>FormConsultas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEquipos.resx">
       <DependentUpon>FormEquipos.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPartido.resx">
       <DependentUpon>FormPartido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportes.resx">
+      <DependentUpon>FormReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

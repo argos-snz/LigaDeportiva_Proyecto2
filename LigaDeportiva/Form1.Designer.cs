@@ -33,6 +33,7 @@
             this.btnClubes = new System.Windows.Forms.Button();
             this.btnPartidos = new System.Windows.Forms.Button();
             this.btnReportes = new System.Windows.Forms.Button();
+            this.btnConsultas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnJugadores
@@ -83,12 +84,24 @@
             this.btnReportes.TabIndex = 4;
             this.btnReportes.Text = "Generar Reportes";
             this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // btnConsultas
+            // 
+            this.btnConsultas.Location = new System.Drawing.Point(206, 38);
+            this.btnConsultas.Name = "btnConsultas";
+            this.btnConsultas.Size = new System.Drawing.Size(126, 51);
+            this.btnConsultas.TabIndex = 5;
+            this.btnConsultas.Text = "Consultas";
+            this.btnConsultas.UseVisualStyleBackColor = true;
+            this.btnConsultas.Click += new System.EventHandler(this.btnConsultas_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(657, 450);
+            this.Controls.Add(this.btnConsultas);
             this.Controls.Add(this.btnReportes);
             this.Controls.Add(this.btnPartidos);
             this.Controls.Add(this.btnClubes);
@@ -107,6 +120,7 @@
         private System.Windows.Forms.Button btnClubes;
         private System.Windows.Forms.Button btnPartidos;
         private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Button btnConsultas;
     }
 }
 

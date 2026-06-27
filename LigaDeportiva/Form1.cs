@@ -56,5 +56,17 @@ namespace LigaDeportiva
             FormPartido ventanaPartidos = new FormPartido(gestorPartidos, gestorEquipos);
             ventanaPartidos.ShowDialog();
         }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            FormReportes ventanaReportes = new FormReportes(gestorJugadores, gestorEquipos, gestorClubes, gestorPartidos);
+            ventanaReportes.ShowDialog();
+        }
+
+        private void btnConsultas_Click(object sender, EventArgs e)
+        {
+            FormConsultas ventanaConsultas = new FormConsultas(gestorPartidos, gestorEquipos, gestorJugadores);
+            ventanaConsultas.ShowDialog();
+        }
     }
 }
