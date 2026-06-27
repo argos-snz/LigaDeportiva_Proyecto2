@@ -73,6 +73,7 @@
             this.btnPartidos.TabIndex = 3;
             this.btnPartidos.Text = "Registrar Partido";
             this.btnPartidos.UseVisualStyleBackColor = true;
+            this.btnPartidos.Click += new System.EventHandler(this.btnPartidos_Click);
             // 
             // btnReportes
             // 

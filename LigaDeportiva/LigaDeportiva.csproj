@@ -82,6 +82,12 @@
     <Compile Include="FormJugadores.Designer.cs">
       <DependentUpon>FormJugadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPartido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPartido.Designer.cs">
+      <DependentUpon>FormPartido.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IExportable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -96,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormJugadores.resx">
       <DependentUpon>FormJugadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPartido.resx">
+      <DependentUpon>FormPartido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

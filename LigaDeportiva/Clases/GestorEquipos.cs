@@ -122,5 +122,22 @@ namespace LigaDeportiva.Clases
                 return false;
             }
         }
+
+
+        /// <summary>
+        /// Devuelve la lista de equipos que pertenecen a una categoría específica.
+        /// </summary>
+        public List<Equipo> EquiposPorCategoria(Categoria categoria)
+        {
+            List<Equipo> resultado = new List<Equipo>();
+            foreach (Equipo e in equipos)
+            {
+                if (e.Categoria == categoria)
+                {
+                    resultado.Add(e);
+                }
+            }
+            return resultado;
+        }
     }
 }

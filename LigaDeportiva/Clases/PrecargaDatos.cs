@@ -90,6 +90,20 @@ namespace LigaDeportiva.Clases
                 }
             }
 
+            // Asignamos jugadores de River a equipoA
+            gestorJugadores.AsignarJugadorAEquipo(jA1, equipoA);
+            gestorJugadores.AsignarJugadorAEquipo(jA2, equipoA);
+            gestorJugadores.AsignarJugadorAEquipo(jA3, equipoA);
+            gestorJugadores.AsignarJugadorAEquipo(jA4, equipoA);
+            gestorJugadores.AsignarJugadorAEquipo(jA5, equipoA);
+
+            // Asignamos jugadores de Boca a equipoB
+            gestorJugadores.AsignarJugadorAEquipo(jB1, equipoB);
+            gestorJugadores.AsignarJugadorAEquipo(jB2, equipoB);
+            gestorJugadores.AsignarJugadorAEquipo(jB3, equipoB);
+            gestorJugadores.AsignarJugadorAEquipo(jB4, equipoB);
+            gestorJugadores.AsignarJugadorAEquipo(jB5, equipoB);
+
             //Creamos el partido usando TU constructor gigante y seguro
             Partido partidoPrueba = new Partido(
                 Categoria.Primera,        // categoría
