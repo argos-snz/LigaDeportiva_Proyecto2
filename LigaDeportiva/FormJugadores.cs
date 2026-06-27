@@ -28,6 +28,9 @@ namespace LigaDeportiva
         private void FormJugadores_Load(object sender, EventArgs e)
         {
             ActualizarGrilla();
+
+            // Esto hace que las columnas ocupen automáticamente todo el ancho disponible
+            dgvJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         //Actualiza la grilla

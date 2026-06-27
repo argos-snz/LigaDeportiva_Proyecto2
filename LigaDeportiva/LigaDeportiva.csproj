@@ -64,6 +64,18 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormClubes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormClubes.Designer.cs">
+      <DependentUpon>FormClubes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEquipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEquipos.Designer.cs">
+      <DependentUpon>FormEquipos.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormJugadores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +87,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormClubes.resx">
+      <DependentUpon>FormClubes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEquipos.resx">
+      <DependentUpon>FormEquipos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormJugadores.resx">
       <DependentUpon>FormJugadores.cs</DependentUpon>

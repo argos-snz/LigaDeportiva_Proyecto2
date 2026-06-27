@@ -29,15 +29,26 @@ namespace LigaDeportiva
             gestorClubes = new GestorClubes();
             gestorPartidos = new GestorPartidos();
 
-            PrecargaDatos.Cargar(gestorPartidos, gestorJugadores);
+            PrecargaDatos.Cargar(gestorPartidos, gestorJugadores, gestorClubes, gestorEquipos);
         }
-
-          
-
+                  
         private void btnJugadores_Click(object sender, EventArgs e)
         {
             FormJugadores ventanaJugadores = new FormJugadores(gestorJugadores, gestorEquipos);
             ventanaJugadores.ShowDialog();
+        }
+
+        private void btnEquipos_Click(object sender, EventArgs e)
+        {
+            // Abrimos la ventana equipos
+            FormEquipos ventanaEquipos = new FormEquipos(gestorClubes, gestorEquipos);
+            ventanaEquipos.ShowDialog();
+        }
+
+        private void btnClubes_Click(object sender, EventArgs e)
+        {
+            FormClubes ventanaClubes = new FormClubes(gestorClubes);
+            ventanaClubes.ShowDialog();
         }
     }
 }

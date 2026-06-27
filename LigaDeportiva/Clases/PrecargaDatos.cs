@@ -15,15 +15,18 @@ namespace LigaDeportiva.Clases
         /// <summary>
         /// Carga equipos, jugadores y un partido de prueba 
         /// </summary>
-        public static void Cargar(GestorPartidos gestorPartidos, GestorJugadores gestorJugadores)
+        public static void Cargar(GestorPartidos gestorPartidos, GestorJugadores gestorJugadores, GestorClubes gestorClubes, GestorEquipos gestorEquipos)
         {
-            // Creamos los clubes
-            Club clubA = new Club("River");
-            Club clubB = new Club("Boca");
+            //cargamoss y los guardamos en el gestor de clubes
+            gestorClubes.AgregarClub("River");
+            gestorClubes.AgregarClub("Boca");
 
-            // Creamos los equipos 
-            Equipo equipoA = new Equipo(clubA, Categoria.Primera);
-            Equipo equipoB = new Equipo(clubB, Categoria.Primera);
+            // cargamos equipos y los guardamos en el gestor de equipos
+            Club clubA = gestorClubes.BuscarClub("River");
+            Club clubB = gestorClubes.BuscarClub("Boca");
+
+            gestorEquipos.AgregarEquipo(clubA, Categoria.Primera);
+            gestorEquipos.AgregarEquipo(clubB, Categoria.Primera);
 
             // Creamos los 5 jugadores titulares de River
             Jugador jA1 = new Jugador(11111111, "Roberto", "Ruso", 25, true, true);
@@ -69,7 +72,25 @@ namespace LigaDeportiva.Clases
             List<Jugador> suplentesA = new List<Jugador>(); //no hay suplentes
             List<Jugador> suplentesB = new List<Jugador>();
 
-            // 6. Creamos el partido usando TU constructor gigante y seguro
+            //buscamos los equipos en el gestor de equipos para poder crear el partido
+            var listaEquipos = gestorEquipos.MostrarEquipos();
+
+            Equipo equipoA = null;
+            Equipo equipoB = null;
+
+            foreach (Equipo e in listaEquipos)
+            {
+                if (e.Club.Nombre == "River")
+                {
+                    equipoA = e;
+                }
+                if (e.Club.Nombre == "Boca")
+                {
+                    equipoB = e;
+                }
+            }
+
+            //Creamos el partido usando TU constructor gigante y seguro
             Partido partidoPrueba = new Partido(
                 Categoria.Primera,        // categoría
                 equipoA,                  // equipoLocal

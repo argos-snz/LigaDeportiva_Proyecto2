@@ -53,7 +53,7 @@ namespace LigaDeportiva.Clases
             get { return nombre; }
             set
             {
-                if (value.Trim() != "")
+                if (value != null && value.Trim() != "")
                     nombre = value;
             }
         }
@@ -66,7 +66,7 @@ namespace LigaDeportiva.Clases
             get { return apellido; }
             set
             {
-                if (value.Trim() != "")
+                if (value != null && value.Trim() != "")
                     apellido = value;
             }
         }

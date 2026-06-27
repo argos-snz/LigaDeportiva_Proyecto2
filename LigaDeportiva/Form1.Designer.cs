@@ -53,6 +53,7 @@
             this.btnEquipos.TabIndex = 1;
             this.btnEquipos.Text = "Gestionar Equipos";
             this.btnEquipos.UseVisualStyleBackColor = true;
+            this.btnEquipos.Click += new System.EventHandler(this.btnEquipos_Click);
             // 
             // btnClubes
             // 
@@ -62,6 +63,7 @@
             this.btnClubes.TabIndex = 2;
             this.btnClubes.Text = "Gestionar Clubes";
             this.btnClubes.UseVisualStyleBackColor = true;
+            this.btnClubes.Click += new System.EventHandler(this.btnClubes_Click);
             // 
             // btnPartidos
             // 

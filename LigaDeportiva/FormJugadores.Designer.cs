@@ -42,6 +42,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJugadores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,21 +64,21 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(75, 67);
+            this.txtNombre.Location = new System.Drawing.Point(76, 65);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(154, 20);
             this.txtNombre.TabIndex = 2;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(75, 102);
+            this.txtApellido.Location = new System.Drawing.Point(76, 100);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(154, 20);
             this.txtApellido.TabIndex = 3;
             // 
             // txtEdad
             // 
-            this.txtEdad.Location = new System.Drawing.Point(58, 137);
+            this.txtEdad.Location = new System.Drawing.Point(59, 135);
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(50, 20);
             this.txtEdad.TabIndex = 4;
@@ -144,7 +145,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 70);
+            this.label2.Location = new System.Drawing.Point(13, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 16;
@@ -153,7 +154,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 105);
+            this.label3.Location = new System.Drawing.Point(13, 103);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(62, 13);
             this.label3.TabIndex = 17;
@@ -162,17 +163,28 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 140);
+            this.label4.Location = new System.Drawing.Point(13, 138);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
             this.label4.TabIndex = 18;
             this.label4.Text = "EDAD:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 186);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(487, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "*Para modificar un dato de un jugador cargado, haga doble click sobre el campo qu" +
+    "e desea modificar.";
             // 
             // FormJugadores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(682, 450);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -188,7 +200,7 @@
             this.Controls.Add(this.txtDni);
             this.Controls.Add(this.dgvJugadores);
             this.Name = "FormJugadores";
-            this.Text = "Formulario de Jugadores";
+            this.Text = "Gestión de Jugadores";
             this.Load += new System.EventHandler(this.FormJugadores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvJugadores)).EndInit();
             this.ResumeLayout(false);
@@ -212,5 +224,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
