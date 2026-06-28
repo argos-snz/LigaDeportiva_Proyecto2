@@ -32,8 +32,15 @@ namespace LigaDeportiva
             // Esto hace que las columnas ocupen automáticamente todo el ancho disponible
             dgvJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            cmbEquipoFiltro.DataSource = gestorEquipos.MostrarEquipos();
-            cmbEquipoFiltro.DisplayMember = "Nombre";
+            // Cargamos los equipos en el ComboBox de filtro
+            cmbCategorias.Items.Clear();
+            cmbCategorias.Items.Add("-- Todos --");
+            foreach (Equipo eq in gestorEquipos.MostrarEquipos())
+            {
+                cmbCategorias.Items.Add(eq);
+            }
+            cmbCategorias.DisplayMember = "Nombre";
+            cmbCategorias.SelectedIndex = 0; // selecciona "-- Todos --"
         }
 
         //Actualiza la grilla
@@ -177,7 +184,11 @@ namespace LigaDeportiva
 
         private void cmbCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbEquipoFiltro.SelectedItem is Equipo equipoSeleccionado)
+            if (cmbCategorias.SelectedItem is string) // seleccionó "-- Todos --"
+            {
+                ActualizarGrilla(); // muestra todos
+            }
+            else if (cmbCategorias.SelectedItem is Equipo equipoSeleccionado)
             {
                 dgvJugadores.DataSource = null;
                 dgvJugadores.DataSource = equipoSeleccionado.Jugadores;
@@ -201,7 +212,7 @@ namespace LigaDeportiva
                 return;
             }
 
-            if (cmbEquipoFiltro.SelectedItem == null)
+            if (cmbCategorias.SelectedItem == null)
             {
                 MessageBox.Show("Seleccioná un equipo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -209,7 +220,7 @@ namespace LigaDeportiva
 
             if (dgvJugadores.SelectedRows[0].DataBoundItem is Jugador jugador)
             {
-                Equipo equipo = (Equipo)cmbEquipoFiltro.SelectedItem;
+                Equipo equipo = (Equipo)cmbCategorias.SelectedItem;
 
                 DialogResult respuesta = MessageBox.Show(
                     $"¿Quitar a {jugador.Nombre} {jugador.Apellido} del equipo {equipo.Nombre}?",

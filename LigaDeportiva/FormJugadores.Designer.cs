@@ -46,7 +46,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.cmbEquipoFiltro = new System.Windows.Forms.ComboBox();
+            this.cmbCategorias = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnQuitarDeEquipo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvJugadores)).BeginInit();
@@ -262,16 +262,16 @@
             this.label6.TabIndex = 22;
             this.label6.Text = "Filtrar por equipo:";
             // 
-            // cmbEquipoFiltro
+            // cmbCategorias
             // 
-            this.cmbEquipoFiltro.BackColor = System.Drawing.Color.White;
-            this.cmbEquipoFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cmbEquipoFiltro.FormattingEnabled = true;
-            this.cmbEquipoFiltro.Location = new System.Drawing.Point(142, 207);
-            this.cmbEquipoFiltro.Name = "cmbEquipoFiltro";
-            this.cmbEquipoFiltro.Size = new System.Drawing.Size(178, 21);
-            this.cmbEquipoFiltro.TabIndex = 23;
-            this.cmbEquipoFiltro.SelectedIndexChanged += new System.EventHandler(this.cmbCategorias_SelectedIndexChanged);
+            this.cmbCategorias.BackColor = System.Drawing.Color.White;
+            this.cmbCategorias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cmbCategorias.FormattingEnabled = true;
+            this.cmbCategorias.Location = new System.Drawing.Point(142, 207);
+            this.cmbCategorias.Name = "cmbCategorias";
+            this.cmbCategorias.Size = new System.Drawing.Size(178, 21);
+            this.cmbCategorias.TabIndex = 23;
+            this.cmbCategorias.SelectedIndexChanged += new System.EventHandler(this.cmbCategorias_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -307,7 +307,7 @@
             this.ClientSize = new System.Drawing.Size(717, 546);
             this.Controls.Add(this.btnQuitarDeEquipo);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.cmbEquipoFiltro);
+            this.Controls.Add(this.cmbCategorias);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.label5);
@@ -353,7 +353,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblTitulo;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbEquipoFiltro;
+        private System.Windows.Forms.ComboBox cmbCategorias;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnQuitarDeEquipo;
     }
