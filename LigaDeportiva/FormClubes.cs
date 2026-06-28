@@ -54,5 +54,34 @@ namespace LigaDeportiva
 
             
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvClubes.SelectedRows.Count > 0)
+            {
+                string nombre = dgvClubes.SelectedRows[0].Cells["Nombre"].Value.ToString();
+
+                DialogResult respuesta = MessageBox.Show($"¿Eliminar el club {nombre}?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    if (gestorClubes.EliminarClub(nombre))
+                    {
+                        ActualizarLista();
+                        MessageBox.Show("Club eliminado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se puede eliminar, el club tiene equipos registrados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccioná un club de la lista para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+
     }
 }

@@ -31,6 +31,9 @@ namespace LigaDeportiva
 
             // Esto hace que las columnas ocupen automáticamente todo el ancho disponible
             dgvJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            cmbEquipoFiltro.DataSource = gestorEquipos.MostrarEquipos();
+            cmbEquipoFiltro.DisplayMember = "Nombre";
         }
 
         //Actualiza la grilla
@@ -164,6 +167,69 @@ namespace LigaDeportiva
 
                 if (filaSeleccionada.Cells["Afiliado"].Value != null)
                     chkAfiliado.Checked = (bool)filaSeleccionada.Cells["Afiliado"].Value;
+            }
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbCategorias_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbEquipoFiltro.SelectedItem is Equipo equipoSeleccionado)
+            {
+                dgvJugadores.DataSource = null;
+                dgvJugadores.DataSource = equipoSeleccionado.Jugadores;
+                dgvJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                if (dgvJugadores.Columns["Equipos"] != null)
+                    dgvJugadores.Columns["Equipos"].Visible = false;
+            }
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnQuitarDeEquipo_Click(object sender, EventArgs e)
+        {
+            if (dgvJugadores.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Seleccioná un jugador de la lista primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (cmbEquipoFiltro.SelectedItem == null)
+            {
+                MessageBox.Show("Seleccioná un equipo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (dgvJugadores.SelectedRows[0].DataBoundItem is Jugador jugador)
+            {
+                Equipo equipo = (Equipo)cmbEquipoFiltro.SelectedItem;
+
+                DialogResult respuesta = MessageBox.Show(
+                    $"¿Quitar a {jugador.Nombre} {jugador.Apellido} del equipo {equipo.Nombre}?",
+                    "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (respuesta == DialogResult.Yes)
+                {
+                    if (gestorJugadores.QuitarJugadorDeEquipo(jugador, equipo))
+                    {
+                        MessageBox.Show("Jugador quitado del equipo correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Actualizamos la grilla con los jugadores restantes del equipo
+                        dgvJugadores.DataSource = null;
+                        dgvJugadores.DataSource = equipo.Jugadores;
+                        dgvJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El jugador no pertenece a ese equipo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

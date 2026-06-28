@@ -171,5 +171,15 @@ namespace LigaDeportiva
 
             dgvEstadisticas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
+
+        private void tabFormaciones_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvJugadoresPorEquipo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

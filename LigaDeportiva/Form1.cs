@@ -68,5 +68,10 @@ namespace LigaDeportiva
             FormConsultas ventanaConsultas = new FormConsultas(gestorPartidos, gestorEquipos, gestorJugadores);
             ventanaConsultas.ShowDialog();
         }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

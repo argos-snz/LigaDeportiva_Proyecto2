@@ -93,6 +93,15 @@ namespace LigaDeportiva
             else
                 MessageBox.Show("Error al exportar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-    
+
+        private void FormReportes_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rtbResultado_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

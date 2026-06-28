@@ -125,5 +125,10 @@ namespace LigaDeportiva
                 MessageBox.Show("Seleccioná una fila de la grilla para eliminar.");
             }
         }
+
+        private void lblTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
