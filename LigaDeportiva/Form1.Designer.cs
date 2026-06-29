@@ -44,7 +44,7 @@
             this.btnJugadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJugadores.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnJugadores.ForeColor = System.Drawing.Color.White;
-            this.btnJugadores.Location = new System.Drawing.Point(68, 86);
+            this.btnJugadores.Location = new System.Drawing.Point(68, 286);
             this.btnJugadores.Name = "btnJugadores";
             this.btnJugadores.Size = new System.Drawing.Size(208, 72);
             this.btnJugadores.TabIndex = 0;
@@ -74,7 +74,7 @@
             this.btnClubes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClubes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClubes.ForeColor = System.Drawing.Color.White;
-            this.btnClubes.Location = new System.Drawing.Point(68, 286);
+            this.btnClubes.Location = new System.Drawing.Point(68, 86);
             this.btnClubes.Name = "btnClubes";
             this.btnClubes.Size = new System.Drawing.Size(208, 72);
             this.btnClubes.TabIndex = 2;
@@ -89,7 +89,7 @@
             this.btnPartidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPartidos.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPartidos.ForeColor = System.Drawing.Color.White;
-            this.btnPartidos.Location = new System.Drawing.Point(355, 181);
+            this.btnPartidos.Location = new System.Drawing.Point(355, 86);
             this.btnPartidos.Name = "btnPartidos";
             this.btnPartidos.Size = new System.Drawing.Size(208, 72);
             this.btnPartidos.TabIndex = 3;
@@ -119,7 +119,7 @@
             this.btnConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConsultas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultas.ForeColor = System.Drawing.Color.White;
-            this.btnConsultas.Location = new System.Drawing.Point(355, 86);
+            this.btnConsultas.Location = new System.Drawing.Point(355, 181);
             this.btnConsultas.Name = "btnConsultas";
             this.btnConsultas.Size = new System.Drawing.Size(208, 72);
             this.btnConsultas.TabIndex = 5;

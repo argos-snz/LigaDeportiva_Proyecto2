@@ -82,6 +82,9 @@ namespace LigaDeportiva
             }
         }
 
+        private void dgvClubes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
+        }
     }
 }

@@ -35,6 +35,7 @@
             this.dgvClubes = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClubes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,20 +43,21 @@
             // 
             this.txtNombre.BackColor = System.Drawing.Color.White;
             this.txtNombre.ForeColor = System.Drawing.Color.Black;
-            this.txtNombre.Location = new System.Drawing.Point(97, 52);
+            this.txtNombre.Location = new System.Drawing.Point(12, 56);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(313, 20);
+            this.txtNombre.Size = new System.Drawing.Size(304, 20);
             this.txtNombre.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(8, 55);
+            this.label1.Location = new System.Drawing.Point(12, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(192, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Nombre del club:";
+            this.label1.Text = "Nombre del Club a registrar:";
             // 
             // btnAgregar
             // 
@@ -64,7 +66,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(143, 78);
+            this.btnAgregar.Location = new System.Drawing.Point(338, 39);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(99, 37);
             this.btnAgregar.TabIndex = 2;
@@ -85,12 +87,13 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvClubes.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClubes.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(135)))));
-            this.dgvClubes.Location = new System.Drawing.Point(12, 134);
+            this.dgvClubes.Location = new System.Drawing.Point(12, 90);
             this.dgvClubes.Name = "dgvClubes";
             this.dgvClubes.ReadOnly = true;
             this.dgvClubes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClubes.Size = new System.Drawing.Size(477, 163);
+            this.dgvClubes.Size = new System.Drawing.Size(477, 170);
             this.dgvClubes.TabIndex = 3;
+            this.dgvClubes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClubes_CellContentClick);
             // 
             // btnEliminar
             // 
@@ -99,7 +102,7 @@
             this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(272, 78);
+            this.btnEliminar.Location = new System.Drawing.Point(338, 266);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(99, 37);
             this.btnEliminar.TabIndex = 5;
@@ -119,12 +122,24 @@
             this.lblTitulo.TabIndex = 22;
             this.lblTitulo.Text = "GESTIÓN DE CLUBES";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(148, 276);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 17);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Eliminar Club seleccionado";
+            // 
             // FormClubes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(500, 309);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.dgvClubes);
@@ -148,5 +163,6 @@
         private System.Windows.Forms.DataGridView dgvClubes;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Label label2;
     }
 }

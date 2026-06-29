@@ -15,6 +15,7 @@ namespace LigaDeportiva
     {
         private GestorJugadores gestorJugadores;
         private GestorEquipos gestorEquipos;
+        private Jugador jugadorSeleccionado;
 
         public FormJugadores(GestorJugadores gestorJugadores, GestorEquipos gestorEquipos)
         {
@@ -40,7 +41,12 @@ namespace LigaDeportiva
                 cmbCategorias.Items.Add(eq);
             }
             cmbCategorias.DisplayMember = "Nombre";
-            cmbCategorias.SelectedIndex = 0; // selecciona "-- Todos --"
+            cmbCategorias.SelectedIndex = 0; // selecciona "--Todos--"
+
+            dgvJugadores.SelectionChanged += dgvJugadores_SelectionChanged;
+
+            dgvJugadores.SelectionChanged += dgvJugadores_SelectionChanged;
+            dgvJugadores.CellDoubleClick += dgvJugadores_CellDoubleClick; 
         }
 
         //Actualiza la grilla
@@ -174,6 +180,9 @@ namespace LigaDeportiva
 
                 if (filaSeleccionada.Cells["Afiliado"].Value != null)
                     chkAfiliado.Checked = (bool)filaSeleccionada.Cells["Afiliado"].Value;
+                
+                if (dgvJugadores.SelectedRows[0].DataBoundItem is Jugador j)
+                    jugadorSeleccionado = j;
             }
         }
 
@@ -184,6 +193,12 @@ namespace LigaDeportiva
 
         private void cmbCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Guardamos el nombre del jugador seleccionado antes de filtrar
+            string nombre = txtNombre.Text;
+            string apellido = txtApellido.Text;
+            string dni = txtDni.Text;
+            string edad = txtEdad.Text;
+
             if (cmbCategorias.SelectedItem is string) // seleccionó "-- Todos --"
             {
                 ActualizarGrilla(); // muestra todos
@@ -197,6 +212,12 @@ namespace LigaDeportiva
                 if (dgvJugadores.Columns["Equipos"] != null)
                     dgvJugadores.Columns["Equipos"].Visible = false;
             }
+
+            // Restauramos los datos en los textbox para no perder la selección del jugador al filtrar
+            txtNombre.Text = nombre;
+            txtApellido.Text = apellido;
+            txtDni.Text = dni;
+            txtEdad.Text = edad;
         }
 
         private void label5_Click(object sender, EventArgs e)
@@ -242,6 +263,58 @@ namespace LigaDeportiva
                     }
                 }
             }
+        }
+
+        private void btnAsignarAEquipo_Click(object sender, EventArgs e)
+        {
+            if (jugadorSeleccionado == null)
+            {
+                MessageBox.Show("Seleccioná un jugador de la lista primero.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!(cmbCategorias.SelectedItem is Equipo equipoDestino))
+            {
+                MessageBox.Show("Seleccioná un equipo del combo para asignar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            bool exito = gestorJugadores.AsignarJugadorAEquipo(jugadorSeleccionado, equipoDestino);
+
+            if (exito)
+            {
+                MessageBox.Show($"{jugadorSeleccionado.Nombre} {jugadorSeleccionado.Apellido} fue asignado a {equipoDestino.Nombre}.",
+                                "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ActualizarGrilla();
+                jugadorSeleccionado = null; // limpiamos después de asignar
+            }
+            else
+            {
+                MessageBox.Show(
+                    $"No se pudo asignar. Verificá que la edad corresponda a la categoría {equipoDestino.Categoria} o que no esté ya en ese equipo.",
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void dgvJugadores_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvJugadores.SelectedRows.Count > 0 &&
+                dgvJugadores.SelectedRows[0].DataBoundItem is Jugador j)
+            {
+                jugadorSeleccionado = j;
+                                    
+                txtDni.Text = j.Dni.ToString();
+                txtNombre.Text = j.Nombre;
+                txtApellido.Text = j.Apellido;
+                txtEdad.Text = j.Edad.ToString();
+                chkSeguro.Checked = j.Seguro;
+                chkAfiliado.Checked = j.Afiliado;
+            }
+        }
+
+        private void dgvJugadores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
