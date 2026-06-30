@@ -28,7 +28,7 @@ namespace LigaDeportiva.Clases
         /// <returns>true si se agregó correctamente</returns>
         public bool AgregarPartido(Partido partido)
         {
-            // verifica que el partido recibido sea valido
+            // PRIMER CAMBIO (verificamos que el partido recibido sea valido)
             if (partido == null)
             {
                 return false;
@@ -44,7 +44,7 @@ namespace LigaDeportiva.Clases
         /// <returns>Lista de todos los partidos registrados</returns>
         public List<Partido> MostrarPartidos()
         {
-            // devolvemos una copia de la lista
+            // SEGUNDO CAMBIO (devolvemos una copia de la lista)
             return new List<Partido>(partidos);
         }
 
@@ -130,7 +130,7 @@ namespace LigaDeportiva.Clases
         {
             try
             {
-                //verificamos que la lista de equipos exista y tenga elementos
+                // TERCER CAMBIO (verificamos que la lista de equipos exista y tenga elementos)
                 if (equipos == null || equipos.Count == 0)
                 {
                     return false;

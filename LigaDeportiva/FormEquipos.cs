@@ -103,7 +103,7 @@ namespace LigaDeportiva
         {
             if (dgvEquipos.SelectedRows.Count > 0)
             {
-                string nombreEquipo = dgvEquipos.SelectedRows[0].Cells["Nombre"].Value.ToString();
+                string nombreEquipo = dgvEquipos.SelectedRows[0].Cells["Nombre"].Value?.ToString();   // El ?. antes del .ToString() evita el crash si el valor es null
 
                 DialogResult res = MessageBox.Show($"¿Eliminar equipo {nombreEquipo}?", "Confirmar", MessageBoxButtons.YesNo);
 

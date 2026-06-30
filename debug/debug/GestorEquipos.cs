@@ -37,6 +37,7 @@ namespace LigaDeportiva.Clases
         /// <param name="categoria">Categoría del equipo</param>
         public void AgregarEquipo(Club club, Categoria categoria)
         {
+            // PRIMER CAMBIO (validaciones)
             // validamos que el club exista
             if (club == null)
             {
@@ -68,7 +69,7 @@ namespace LigaDeportiva.Clases
         {
             foreach (Equipo e in equipos)
             {
-                //comparamos los nombres sin distinguir mayusculas y minusculas
+                // SEGUNDO CAMBIO (comparamos los nombres sin distinguir mayusculas y minusculas)
                 if (e.Nombre.Equals(nombre.Trim(), StringComparison.OrdinalIgnoreCase))
                 {
                     // si el equipo tiene jugadores, no se puede eliminar
@@ -166,24 +167,6 @@ namespace LigaDeportiva.Clases
             return resultado;
         }
 
-
-
-        /// <summary>
-        /// Busca un equipo por su nombre.
-        /// </summary>
-        /// <param name="nombre">Nombre del equipo a buscar</param>
-        /// <returns>El equipo encontrado, o null si no existe</returns>
-        public Equipo BuscarEquipo(string nombre)
-        {
-            foreach (Equipo e in equipos)
-            {
-                if (e.Nombre == nombre)
-                {
-                    return e;
-                }
-            }
-            return null;
-        }
 
     }
 }

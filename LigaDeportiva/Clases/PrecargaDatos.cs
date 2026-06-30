@@ -91,18 +91,19 @@ namespace LigaDeportiva.Clases
             }
 
             // Asignamos jugadores de River a equipoA
-            gestorJugadores.AsignarJugadorAEquipo(jA1, equipoA);
-            gestorJugadores.AsignarJugadorAEquipo(jA2, equipoA);
-            gestorJugadores.AsignarJugadorAEquipo(jA3, equipoA);
-            gestorJugadores.AsignarJugadorAEquipo(jA4, equipoA);
-            gestorJugadores.AsignarJugadorAEquipo(jA5, equipoA);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(11111111), equipoA);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(22222222), equipoA);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(33333333), equipoA);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(44444444), equipoA);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(55555555), equipoA);
+
 
             // Asignamos jugadores de Boca a equipoB
-            gestorJugadores.AsignarJugadorAEquipo(jB1, equipoB);
-            gestorJugadores.AsignarJugadorAEquipo(jB2, equipoB);
-            gestorJugadores.AsignarJugadorAEquipo(jB3, equipoB);
-            gestorJugadores.AsignarJugadorAEquipo(jB4, equipoB);
-            gestorJugadores.AsignarJugadorAEquipo(jB5, equipoB);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(66666666), equipoB);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(77777777), equipoB);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(88888888), equipoB);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(99999999), equipoB);
+            gestorJugadores.AsignarJugadorAEquipo(gestorJugadores.BuscarJugador(12345678), equipoB);
 
             //Creamos el partido usando TU constructor gigante y seguro
             Partido partidoPrueba = new Partido(

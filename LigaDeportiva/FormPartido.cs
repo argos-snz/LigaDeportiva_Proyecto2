@@ -126,11 +126,38 @@ namespace LigaDeportiva
                     return;
                 }
 
+                // Validamos que no haya jugadores repetidos entre titulares y suplentes del local
+                foreach (string jugador in cblSuplentesLocal.CheckedItems)
+                {
+                    if (cblTitularesLocal.CheckedItems.Contains(jugador))
+                    {
+                        MessageBox.Show("Un jugador del equipo local no puede ser titular y suplente a la vez.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                // Validamos que no haya jugadores repetidos entre titulares y suplentes del visitante
+                foreach (string jugador in cblSuplentesVisitante.CheckedItems)
+                {
+                    if (cblTitularesVisitante.CheckedItems.Contains(jugador))
+                    {
+                        MessageBox.Show("Un jugador del equipo visitante no puede ser titular y suplente a la vez.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
                 // Armamos las listas de jugadores
                 List<Jugador> titularesLocal = ObtenerJugadoresSeleccionados(cblTitularesLocal, local);
                 List<Jugador> titularesVisitante = ObtenerJugadoresSeleccionados(cblTitularesVisitante, visitante);
                 List<Jugador> suplentesLocal = ObtenerJugadoresSeleccionados(cblSuplentesLocal, local);
                 List<Jugador> suplentesVisitante = ObtenerJugadoresSeleccionados(cblSuplentesVisitante, visitante);
+
+                if (string.IsNullOrWhiteSpace(txtGolesLocal.Text) || string.IsNullOrWhiteSpace(txtGolesVisitante.Text))
+                {
+                    MessageBox.Show("Ingresá los goles de ambos equipos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
 
                 int golesLocal = int.Parse(txtGolesLocal.Text);
                 int golesVisitante = int.Parse(txtGolesVisitante.Text);

@@ -53,7 +53,7 @@ namespace LigaDeportiva.Clases
             get { return nombre; }
             set
             {
-                // evitamos guardar "   Juan   " (con espacios)
+                // PRIMER CAMBIO (evitamos guardar "   Juan   ")
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     nombre = value.Trim();
@@ -69,7 +69,7 @@ namespace LigaDeportiva.Clases
             get { return apellido; }
             set
             {
-                // evitamos guardar palabras con espacios en blanco, como "   Juan   "
+                // SEGUNDO CAMBIO (evitamos guardar "   Juan   ")
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     apellido = value.Trim();

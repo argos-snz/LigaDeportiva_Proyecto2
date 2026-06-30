@@ -30,7 +30,7 @@ namespace LigaDeportiva.Clases
             get { return nombre; }
             set
             {
-                //validamos que el nombre recibido no sea nulo o tenga espacios en blanco
+                // PRIMER CAMBIO (validamos que el nombre recibido no sea nulo o tenga espacios en blanco)
                 if (!string.IsNullOrWhiteSpace(value))
                 {
                     // Guardamos el nombre sin espacios al inicio o al final.

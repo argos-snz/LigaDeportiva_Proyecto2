@@ -20,7 +20,7 @@ namespace LigaDeportiva.Clases
             clubes = new List<Club>();
         }
 
-        
+        /// PRIMER CAMBIO (mejora si escriben River, river o RIVER)
         /// <summary>
         /// busca un club por nombre
         /// la busqueda no distinge entre mayusculas y minusculas
@@ -54,7 +54,7 @@ namespace LigaDeportiva.Clases
         /// <returns>true si se agregó correctamente, false si el nombre está vacío o ya existe</returns>
         public bool AgregarClub(string nombre)
         {
-            
+            // SEGUNDO CAMBIO (si escriben "", "   ", null)
             // validamos que el nombre no sea nulo, vacio o con espacios
             if (string.IsNullOrWhiteSpace(nombre))
             {
@@ -82,6 +82,7 @@ namespace LigaDeportiva.Clases
         /// <returns>Lista de todos los clubes</returns>
         public List<Club> MostrarClubes()
         {
+            // TERCER CAMBIO (no cambia el funcionamiento, pero evitamos cosas como gestor.MostrarClubes().Clear();)
             // devolvemos una copia de la lista para evitar que otras clases modifiquen la colección directamente
             return new List<Club>(clubes);
         }

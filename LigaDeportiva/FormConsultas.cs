@@ -99,6 +99,9 @@ namespace LigaDeportiva
             int indice = cmbPartidoFormaciones.SelectedIndex;
             if (indice < 0) return;
 
+            List<Partido> partidos = gestorPartidos.MostrarPartidos();
+            if (indice >= partidos.Count) return;
+
             Partido p = gestorPartidos.MostrarPartidos()[indice];
 
             rtbFormaciones.Clear();

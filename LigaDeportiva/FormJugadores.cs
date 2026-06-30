@@ -78,6 +78,13 @@ namespace LigaDeportiva
                 bool seguro = chkSeguro.Checked;
                 bool afiliado = chkAfiliado.Checked;
 
+
+                if (dni < 10000000 || dni > 99999999)
+                {
+                    MessageBox.Show("El DNI debe tener exactamente 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 bool exito = gestorJugadores.AgregarJugador(dni, nombre, apellido, edad, seguro, afiliado);
 
                 if (exito)
@@ -110,6 +117,12 @@ namespace LigaDeportiva
                 bool seguro = chkSeguro.Checked;
                 bool afiliado = chkAfiliado.Checked;
 
+                if (dni < 10000000 || dni > 99999999)
+                {
+                    MessageBox.Show("El DNI debe tener exactamente 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 bool exito = gestorJugadores.ModificarJugador(dni, nombre, apellido, edad, seguro, afiliado);
 
                 if (exito)
@@ -125,7 +138,7 @@ namespace LigaDeportiva
             }
             catch (FormatException)
             {
-                MessageBox.Show("El DNI y la Edad deben ser valores numéricos.", "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El DNI y la edad deben ser valores numéricos.", "Error de Formato", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -233,28 +246,25 @@ namespace LigaDeportiva
                 return;
             }
 
-            if (cmbCategorias.SelectedItem == null)
+            if (!(cmbCategorias.SelectedItem is Equipo equipoSeleccionado))
             {
-                MessageBox.Show("Seleccioná un equipo.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Seleccioná un equipo de la lista para quitar al jugador.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (dgvJugadores.SelectedRows[0].DataBoundItem is Jugador jugador)
             {
-                Equipo equipo = (Equipo)cmbCategorias.SelectedItem;
-
                 DialogResult respuesta = MessageBox.Show(
-                    $"¿Quitar a {jugador.Nombre} {jugador.Apellido} del equipo {equipo.Nombre}?",
+                    $"¿Quitar a {jugador.Nombre} {jugador.Apellido} del equipo {equipoSeleccionado.Nombre}?",
                     "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (respuesta == DialogResult.Yes)
                 {
-                    if (gestorJugadores.QuitarJugadorDeEquipo(jugador, equipo))
+                    if (gestorJugadores.QuitarJugadorDeEquipo(jugador, equipoSeleccionado))
                     {
                         MessageBox.Show("Jugador quitado del equipo correctamente.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        // Actualizamos la grilla con los jugadores restantes del equipo
                         dgvJugadores.DataSource = null;
-                        dgvJugadores.DataSource = equipo.Jugadores;
+                        dgvJugadores.DataSource = equipoSeleccionado.Jugadores;
                         dgvJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     }
                     else
@@ -279,25 +289,64 @@ namespace LigaDeportiva
                 return;
             }
 
-            bool exito = gestorJugadores.AsignarJugadorAEquipo(jugadorSeleccionado, equipoDestino);
+            // Buscamos los objetos reales por DNI y nombre
+            Jugador jugadorReal = gestorJugadores.BuscarJugador(jugadorSeleccionado.Dni);
+            Equipo equipoReal = gestorEquipos.BuscarEquipo(equipoDestino.Nombre);
+
+            if (jugadorReal == null || equipoReal == null)
+            {
+                MessageBox.Show("No se encontró el jugador o el equipo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Validamos que no esté ya en ese equipo
+            foreach (Equipo eq in jugadorReal.Equipos)
+            {
+                if (eq.Nombre == equipoReal.Nombre)
+                {
+                    MessageBox.Show("El jugador ya pertenece a ese equipo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            // Validamos que no esté en otro equipo de la misma categoría
+            foreach (Equipo eq in jugadorReal.Equipos)
+            {
+                if (eq.Categoria == equipoReal.Categoria)
+                {
+                    MessageBox.Show("El jugador ya pertenece a un equipo de la misma categoría.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            // Validamos límite de jugadores
+            if (equipoReal.Jugadores.Count >= 8)
+            {
+                MessageBox.Show("El equipo ya tiene el máximo de 8 jugadores.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            bool exito = gestorJugadores.AsignarJugadorAEquipo(jugadorReal, equipoReal);
 
             if (exito)
             {
-                MessageBox.Show($"{jugadorSeleccionado.Nombre} {jugadorSeleccionado.Apellido} fue asignado a {equipoDestino.Nombre}.",
+                MessageBox.Show($"{jugadorReal.Nombre} {jugadorReal.Apellido} fue asignado a {equipoReal.Nombre}.",
                                 "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ActualizarGrilla();
-                jugadorSeleccionado = null; // limpiamos después de asignar
+                jugadorSeleccionado = null;
             }
             else
             {
                 MessageBox.Show(
-                    $"No se pudo asignar. Verificá que la edad corresponda a la categoría {equipoDestino.Categoria} o que no esté ya en ese equipo.",
-                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                   $"No se pudo asignar. La edad del jugador no corresponde a la categoría {equipoReal.Categoria}.",
+                   "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void dgvJugadores_SelectionChanged(object sender, EventArgs e)
         {
+            if (dgvJugadores.SelectedRows.Count == 0) return;
+
             if (dgvJugadores.SelectedRows.Count > 0 &&
                 dgvJugadores.SelectedRows[0].DataBoundItem is Jugador j)
             {

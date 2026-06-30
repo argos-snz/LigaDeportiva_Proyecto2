@@ -92,14 +92,14 @@ namespace LigaDeportiva.Clases
         /// <returns>Lista de todos los jugadores</returns>
         public List<Jugador> MostrarJugadores()
         {
-            // devuelve una copia nueva de lista
+            // PRIMER CAMBIO (devuelvo una copia nueva de lista)
             return new List<Jugador>(jugadores);
         }
 
 
         public bool AsignarJugadorAEquipo(Jugador jugador, Equipo equipo)
         {
-            // verifica que el jugador y el equipo existan
+            // SEGUNDO CAMBIO (verificamos que el jugador y el equipo existan)
             if (jugador == null || equipo == null)
             {
                 return false;
@@ -134,22 +134,11 @@ namespace LigaDeportiva.Clases
 
             foreach (Equipo e in jugador.Equipos)
             {
-                // compara directamente los objetos
-                if (e.Nombre == equipo.Nombre)
+                // TERCER CAMBIO (comparamos directamente los objetos)
+                if (e == equipo)
                 {
                     return false;
                 }
-
-                if (e.Categoria == equipo.Categoria)
-                {
-                    return false;
-                }
-            }
-
-            // Valida que el equipo no tenga más de 8 jugadores
-            if (equipo.Jugadores.Count >= 8)
-            {
-                return false;
             }
 
             jugador.Equipos.Add(equipo);
