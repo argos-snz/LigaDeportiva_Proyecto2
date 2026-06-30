@@ -40,19 +40,17 @@ namespace LigaDeportiva
             string nombre = txtNombre.Text;
 
             // Validamos que no esté vacío
-            if (!string.IsNullOrWhiteSpace(nombre))
+            if (gestorClubes.AgregarClub(nombre))
             {
-                gestorClubes.AgregarClub(nombre);
                 MessageBox.Show("Club agregado con éxito.");
-                txtNombre.Clear(); // Limpiamos para el próximo
+                txtNombre.Clear();
                 ActualizarLista();
             }
             else
             {
-                MessageBox.Show("Por favor, ingresá un nombre válido.");
+                // Esto se ejecutará si el nombre estaba vacío o si el club ya existía
+                MessageBox.Show("Error: El nombre no puede estar vacío o el club ya existe.");
             }
-
-            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

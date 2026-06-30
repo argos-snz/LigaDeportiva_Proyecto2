@@ -73,8 +73,8 @@ namespace LigaDeportiva
             {
                 int dni = int.Parse(txtDni.Text);
                 int edad = int.Parse(txtEdad.Text);
-                string nombre = txtNombre.Text;
-                string apellido = txtApellido.Text;
+                string nombre = txtNombre.Text.Trim();
+                string apellido = txtApellido.Text.Trim();
                 bool seguro = chkSeguro.Checked;
                 bool afiliado = chkAfiliado.Checked;
 
@@ -82,6 +82,20 @@ namespace LigaDeportiva
                 if (dni < 10000000 || dni > 99999999)
                 {
                     MessageBox.Show("El DNI debe tener exactamente 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (edad < 3 || edad > 85)
+                {
+                    MessageBox.Show("La edad debe estar entre 3 y 85 años.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) || !EsTextoValido(txtNombre.Text) ||
+                    string.IsNullOrWhiteSpace(txtApellido.Text) || !EsTextoValido(txtApellido.Text))
+                {
+                    MessageBox.Show("El nombre y el apellido son obligatorios y no pueden contener números, ni espacios vacíos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -105,21 +119,33 @@ namespace LigaDeportiva
         }
 
         
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
             try
             {
                 int dni = int.Parse(txtDni.Text);
                 int edad = int.Parse(txtEdad.Text);
-                string nombre = txtNombre.Text;
-                string apellido = txtApellido.Text;
+                string nombre = txtNombre.Text.Trim();
+                string apellido = txtApellido.Text.Trim();
                 bool seguro = chkSeguro.Checked;
                 bool afiliado = chkAfiliado.Checked;
 
                 if (dni < 10000000 || dni > 99999999)
                 {
                     MessageBox.Show("El DNI debe tener exactamente 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (edad < 3 || edad > 85)
+                {
+                    MessageBox.Show("La edad debe estar entre 3 y 85 años.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtNombre.Text) || !EsTextoValido(txtNombre.Text) ||
+                    string.IsNullOrWhiteSpace(txtApellido.Text) || !EsTextoValido(txtApellido.Text))
+                {
+                    MessageBox.Show("El nombre y el apellido son obligatorios y no pueden contener números, ni espacios vacíos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -193,9 +219,19 @@ namespace LigaDeportiva
 
                 if (filaSeleccionada.Cells["Afiliado"].Value != null)
                     chkAfiliado.Checked = (bool)filaSeleccionada.Cells["Afiliado"].Value;
-                
-                if (dgvJugadores.SelectedRows[0].DataBoundItem is Jugador j)
-                    jugadorSeleccionado = j;
+
+                if (dgvJugadores.SelectedRows.Count > 0)
+                {
+                    if (dgvJugadores.SelectedRows[0].DataBoundItem is Jugador j)
+                    {
+                        jugadorSeleccionado = j;
+                    }
+                }
+                else
+                {
+                    //si no hay nada seleccionado limpiamos la variable
+                    jugadorSeleccionado = null;
+                }
             }
         }
 
@@ -364,6 +400,19 @@ namespace LigaDeportiva
         private void dgvJugadores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private bool EsTextoValido(string texto)
+        {
+            foreach (char c in texto)
+            {
+                
+                if (char.IsDigit(c) || char.IsWhiteSpace(c))
+                {
+                    return false;
+                }
+            }
+            return true;
         }
     }
 }
