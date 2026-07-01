@@ -69,6 +69,13 @@ namespace LigaDeportiva
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            string dniTexto = txtDni.Text.Trim();
+            if (txtDni.Text.Trim().Length != 8)
+            {
+                MessageBox.Show("El N° de DNI debe tener exactamente 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 int dni = int.Parse(txtDni.Text);
@@ -81,7 +88,7 @@ namespace LigaDeportiva
 
                 if (dni < 10000000 || dni > 99999999)
                 {
-                    MessageBox.Show("El DNI debe tener exactamente 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El DNI debe estar entre 10.000.000 y 99.999.999.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
@@ -121,6 +128,13 @@ namespace LigaDeportiva
         
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            string dniTexto = txtDni.Text.Trim();
+            if (txtDni.Text.Trim().Length != 8)
+            {
+                MessageBox.Show("El N° de DNI debe tener exactamente 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
                 int dni = int.Parse(txtDni.Text);
@@ -130,9 +144,11 @@ namespace LigaDeportiva
                 bool seguro = chkSeguro.Checked;
                 bool afiliado = chkAfiliado.Checked;
 
+                
+
                 if (dni < 10000000 || dni > 99999999)
                 {
-                    MessageBox.Show("El DNI debe tener exactamente 8 dígitos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("El N° de DNI debe estar entre 10000000 y 99999999.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
